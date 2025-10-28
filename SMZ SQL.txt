@@ -1,0 +1,77 @@
+create database SMZ;
+use SMZ;
+ create table SMZ_Zone
+(zone_id INT PRIMARY KEY,
+zone_name VARCHAR(50),
+location VARCHAR(20),
+area_size DECIMAL(5,2),
+establishment_year INT);
+
+insert into SMZ_Zone
+values(101,'Brandix India','Andhra Pradesh',4.08,2001),
+(102,'Mahindra World','Tamil Nadu',12.54,1998),
+(103,'Noida SEZ','Noida',1.25,2012),
+(104,'Vishakapatnam SEZ','Andhra Pradesh',1.46,2005),
+(105,'SEPPZ','Maharashtra',0.45,2018);
+
+create  table company 
+(Company_id INT PRIMARY KEY,
+Company_name VARCHAR(50),
+Registration_Date DATE,
+Zone_id INT,
+FOREIGN KEY (Zone_id) REFERENCES smz_zone(zone_id));
+
+insert into company
+values(2201,'Zephyr Robotics Inc.','1988-03-05',101),
+(2202,'EcoSynth Bioworks','1995-11-20',102),
+(2015,'NovaSteel Industries','2007-03-11',103),
+(3158,'AeroMag Systems','2007-08-30',104),
+(2265,'Quantum Chip Labs','2015-11-28',105);
+
+create table product
+(Product_id INT PRIMARY KEY,
+Product_name VARCHAR(50),
+Category VARCHAR(20),
+Product_capacity INT(20),
+Company_id INT,
+FOREIGN KEY(Company_id) REFERENCES company(Company_id));
+
+
+
+insert into product
+values(456,'Zbot-XR','Robotics',5000,2201),
+(111,'Stainless steel','Iron & Steel',12000,2015),
+(222,'Canoba','Bioworks',8000,2202),
+(333,'Snapdragon','Micro chips',23000,2265);
+
+ create table Infrastructure
+(Infra_id INT PRIMARY KEY,
+Type VARCHAR(20),
+Status VARCHAR(20),
+Maintenance_Cycle VARCHAR(50),
+Zone_id INT,
+FOREIGN KEY(Zone_id) REFERENCES smz_zone(zone_id));
+
+insert into infrastructure
+values(501,'Power Grid','Operational','Quarterly',101),
+(502,'Logistics Depot','Under Repair','Annual',103),
+(503,'R&D Facility','Planning','N/A',104),
+(504,'Solar farm','Upgrading','Annual',102),
+(505,'Communication Hub','Operational','Quarterly',105);
+
+
+create table govt_incentives
+(Incentive_id INT PRIMARY KEY,
+Incentive_type VARCHAR(20),
+Amount INT,
+Elgibility_criteria INT,
+zone_id INT,
+FOREIGN KEY(zone_id) REFERENCES smz_zone(zone_id));
+
+insert into govt_incentives
+values(1,'Tax exemption',150000,2,102),
+(2,'R&D grant',100000,1,101),
+(3,'Infrastructure Aid',250000,4,105),
+(4,'Green Tech',654000,5,103),
+(5,'Export Incentive',400000,3,104);
+
