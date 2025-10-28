@@ -25,4 +25,4 @@ I hold certifications in **Excel and PowerBI with AI integration** & **AI tools 
 **More Pojects Coming Soon..."
 
 
-⭐ Feel free to explore and connect with me on [LinekedIn](www.linkedin.com/in/sikandar-ayaz-shamsi-618182339)
+⭐ Feel free to explore and connect with me on [LinkedIN](www.linkedin.com/in/sikandar-ayaz-shamsi-618182339)
